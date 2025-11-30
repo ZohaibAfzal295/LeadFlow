@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
-   "type": "module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,12 +11,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@prisma/client": "^7.0.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "express": "^5.1.0"
-  },
-  "devDependencies": {
-    "prisma": "^7.0.1"
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "postgres": "^3.4.7"
   }
 }
