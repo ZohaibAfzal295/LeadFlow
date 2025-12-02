@@ -1,0 +1,56 @@
+# 1️⃣ Clone a repo (first time only)
+git clone https://github.com/your-username/your-project.git
+# → Downloads the repo to your local machine
+
+# 2️⃣ Check status of files
+git status
+# → Shows changed, staged, and untracked files
+
+# 3️⃣ Stage all files for commit
+git add .
+# → Adds all changes to staging
+
+# 4️⃣ Stage a specific file
+git add filename.js
+# → Adds only the specified file to staging
+
+# 5️⃣ Commit changes
+git commit -m "Describe your changes here"
+# → Saves staged changes with a message
+
+# 6️⃣ Push changes to GitHub (main branch)
+git push origin main
+# → Uploads commits to GitHub
+
+# 7️⃣ Pull changes from GitHub (main branch)
+git pull origin main
+# → Fetches & merges updates from GitHub
+
+# 8️⃣ Create a new branch & switch to it
+git checkout -b feature/add-login
+# → Makes a new branch and switches to it
+
+# 9️⃣ Switch branches
+git checkout main
+# → Switch to another branch
+
+# 🔟 Push a new branch to GitHub
+git push origin feature/add-login
+# → Uploads branch to GitHub
+
+# 1️⃣1️⃣ Fetch changes without merging
+git fetch origin
+# → Downloads commits from GitHub without merging
+
+# 1️⃣2️⃣ See commits on GitHub that are not local
+git log HEAD..origin/main --oneline
+# → Shows commits missing locally
+
+# 1️⃣3️⃣ Merge another branch into current branch
+git merge feature/add-login
+# → Combines changes from another branch
+
+# 1️⃣4️⃣ Resolve merge conflicts (if any)
+# → Edit files to fix conflicts, then:
+git add filename.js
+git commit -m "Resolve merge conflict"

@@ -6,7 +6,6 @@ import dotenv from 'dotenv'
 import authRoutes from "./routes/auth.js";
 
 dotenv.config()  // load .env variables
-
 const app = express()
 app.use(cors())
 app.use(express.json())
