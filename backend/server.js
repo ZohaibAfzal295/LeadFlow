@@ -3,12 +3,16 @@ import express from 'express'
 import cors from 'cors'
 import sql from './db/index.js'   // import default from db connection
 import dotenv from 'dotenv'
+import authRoutes from "./routes/auth.js";
 
 dotenv.config()  // load .env variables
 
 const app = express()
 app.use(cors())
 app.use(express.json())
+
+// Register Auth Routes
+app.use("/auth", authRoutes)  
 
 // Root route
 app.get('/', (req, res) => {
