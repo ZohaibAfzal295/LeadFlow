@@ -45,21 +45,40 @@ router.post("/login", async (req, res) => {
     const match = await bcrypt.compare(password, user.password);
     if (!match) return res.status(400).json({ error: "Incorrect password" });
 
-    const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    // Include role & clientId in JWT
+    const token = jwt.sign(
+      {
+        id: user.id,
+        email: user.email,
+        role: user.role,
+        clientId: user.clientId
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" }
+    );
 
-    return res.json({ success: true, message: "Login successful", token });
+    return res.json({
+      success: true,
+      message: "Login successful",
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+        role: user.role,
+        clientId: user.clientId
+      }
+    });
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
 });
 
+// PROTECTED ROUTE EXAMPLE
 router.get("/list", authMiddleware, async (req, res) => {
   const userId = req.user.id;
   const role = req.user.role;
 
-  // Example
   res.json({ message: "Protected route works!", userId, role });
 });
-
 
 export default router;

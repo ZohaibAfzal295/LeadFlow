@@ -4,11 +4,14 @@ import cors from 'cors'
 import sql from './db/index.js'   // import default from db connection
 import dotenv from 'dotenv'
 import authRoutes from "./routes/auth.js";
+import leadsRoutes from "./routes/leads.js";
 
 dotenv.config()  // load .env variables
 const app = express()
 app.use(cors())
 app.use(express.json())
+
+app.use("/leads", leadsRoutes);
 
 // Register Auth Routes
 app.use("/auth", authRoutes)  
